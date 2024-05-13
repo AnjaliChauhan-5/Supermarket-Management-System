@@ -4,6 +4,6 @@ The Supermarket Management System, developed using C++, is a useful tool that ef
 # Key-Features
 1.   Administrator Mode: Authorized personnel can efficiently manage supermarket inventory by adding, editing, or removing products from the database. This mode ensures timely updates and adjustments to meet evolving demands.
 2.   Buyer Mode: The shopping platform caters to customers by providing a user-friendly interface that enables them to explore the available products, select items for purchase, and generate receipts. 
-3.   Product Management: Product Management involves the essential tasks of adding new products, modifying existing ones, and removing outdated or discontinued items when required. This function simplifies inventory maintenance activities, making certain that the database stays precise, current, and reflective of the supermarket's merchandise.
+3.   Product Management: Product Management involves the essential tasks of adding new products, modifying existing ones, and removing outdated or discontinued items when required.
 4.   Receipt Generation: Receipt Generation automates the process of generating detailed receipts for purchases made by buyers, providing a comprehensive summary of items purchased, quantities, prices, discounts applied, and total amounts. 
    
