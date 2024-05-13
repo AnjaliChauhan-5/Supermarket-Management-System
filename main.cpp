@@ -1,7 +1,6 @@
 #include<iostream>
-#include<fstream> // file handling operations
+#include<fstream> 
 #include<windows.h>
-
 using namespace std;
 
 class shopping
@@ -24,9 +23,9 @@ public:
 
 };
 
-void shopping :: menu() // scope resolution operator -> to define a function outside a class
+void shopping :: menu()
 {
-m: // label
+m: 
     int choice;
     string email;
     string password;
@@ -58,7 +57,7 @@ m: // label
         cout<<"\t\t\t Password      : ";
         cin>>password;
 
-        if(email=="anjali@email.com" && password=="anjali@123")
+        if(email=="xyz@email.com" && password=="xyz@123")
         {
             administrator();
         }
@@ -85,7 +84,7 @@ m: // label
         cout<< "Please select from the given options";
     }
     }
-    goto m; // goto label -> jump statement
+    goto m; 
 }
 
 void shopping :: administrator()
@@ -120,7 +119,7 @@ m:
         break;
 
     case 4:
-        menu(); // back to main menu
+        menu();
         break;
 
     default :
@@ -154,7 +153,7 @@ m:
         break;
 
     case 2:
-        menu(); // go back to menu
+        menu(); 
 
     default :
         cout<<"invalid choice";
@@ -183,25 +182,23 @@ m:
     cout<<"\n\n\t Discount on product : ";
     cin>>dis;
 
-    data.open("database.txt",ios::in); // open the file in reading mode
+    data.open("database.txt",ios::in);
 
-    if(!data) // if file opening failed ya data does not exist then it creates
+    if(!data)
     {
-        data.open("database.txt", ios::app|ios::out); // ios::app -> append mode ios::out -> writing mode
+        data.open("database.txt", ios::app|ios::out);
         data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
         data.close();
     }
     else
     {
         data>>c>>n>>p>>d;
-        // data >> c >> n >> p >> d : reads the next set of values from the file stream (data) and assigns them to the variables c, n, p, and d.
 
-        while(!data.eof()) // eof -> end of file
-            // Inside the while loop : data >> c >> n >> p >> d; reads the values from the file, and if a duplicate product code is found, token is incremented.
+        while(!data.eof())
         {
             if(c == pcode)
             {
-                token++; // if there is duplicacy
+                token++; // if duplicacy exist
 
             }
             data>>c>>n>>p>>d;
@@ -215,7 +212,6 @@ m:
             cout<<endl;
             goto m;
         }
-        // goto m;
         else
         {
             data.open("database.txt", ios::app|ios::out);
@@ -226,7 +222,7 @@ m:
     cout<<"\n\n\t\t Record inserted !";
 }
 
-void shopping :: edit() // modify the file
+void shopping :: edit()
 {
     fstream data,data1;
     int pkey;
@@ -255,7 +251,7 @@ void shopping :: edit() // modify the file
 
         while(!data.eof())
         {
-            if(pkey==pcode) // which he wants to edit if it matches
+            if(pkey==pcode)
             {
                 cout<<"\n\t\t Product new code : ";
                 cin>>c;
@@ -292,7 +288,7 @@ void shopping :: edit() // modify the file
     }
 }
 
-void shopping::rem() // delete the file
+void shopping::rem()
 {
 
     fstream data,data1;
@@ -357,84 +353,6 @@ void shopping:: list()
     }
     data.close();
 }
-/*
-void shopping::receipt()
-	{
-		system("cls"); // this line clears the console screen
-		fstream data;
-
-		int arrc[100],arrq[100]; // arrc -> array of product codes, aarq -> array of product quantity
-		char choice;
-		int c=0; // product count
-		float amount=0;
-		float dis=0;
-		float total=0;
-		cout<<"\n\n\t\t\t Receipt ";
-		data.open("database.txt",ios::in);
-		if(!data)
-		{
-			cout<<"\n\n Empty database";
-		}
-		else
-		{
-			data.close();
-			list();
-			cout<<"\n ____________________________";
-			cout<<"\n|                            |";
-			cout<<"\n|    Please place the order  |";
-			cout<<"\n|____________________________|\n";
-			do
-			{
-				m:
-				cout<<"\n\n Product Code : ";
-				cin>>arrc[c];
-				cout<<"\n Product Quantity : ";
-				cin>>arrq[c];
-				for(int i=0;i<c;i++)
-				{
-					if(arrc[c] == arrc[i])
-					{
-						cout<<"\n\n Duplicate Product Code. Please try again!";
-						goto m;
-					}
-				}
-				c++;
-				cout<<"\n\n Want to buy another product? Press y for yes and n for no : ";
-				cin>>choice;
-			}
-
-			while(choice == 'y');
-			system("cls");
-
-			cout<<"\n\n\t\t\t__________RECEIPT______________\n";
-			cout<<"\nProduct Number\tProduct Name\tQuantity \tPrice \tAmount \tAmount with discount\n";
-
-
-			for(int i=0;i<c;i++)
-			{
-				data.open("database.txt",ios::in);
-				data>>pcode>>pname>>price>>dis;
-				while(!data.eof())
-				{
-					if(pcode == arrc[i])
-					{
-						amount = price*arrq[i];
-						dis = amount - (amount*dis/100);
-						total = total+ dis;
-						cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t"<<amount<<"\t\t"<<dis;
-					}
-					   data>>pcode>>pname>>price>>dis;
-				}
-				data.close();
-			}
-			cout<<"\n\n----------------------------------------------------------------------------------";
-			cout<<"\n Total Amount : "<<total;
-			cout<<"\n\n----------------------------------------------------------------------------------";
-			cout<<endl;
-			cout<<endl;
-		}
-	}
-*/
 
 void shopping::receipt()
 {
@@ -467,7 +385,7 @@ void shopping::receipt()
         if (choice != 'y')
         {
             cout << "\nExiting without placing an order.\n";
-            return; // Exit the function if user chooses not to place an order
+            return;
         }
 
         do
